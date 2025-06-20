@@ -102,6 +102,10 @@ The script works out of the box with no configuration needed. However, you can c
 
 ## 📋 Changelog
 
+### v1.5 - Language Subdomain Support
+- Updated @match to support all language subdomains (e.g. tr.gta5-mods.com, fr.gta5-mods.com)
+- No longer limited to only the English site version
+ 
 ### v1.4 - Robust & Optimized Version
 - Injects Font Awesome icons if missing
 - Adds safer iframe handling with CORS check
