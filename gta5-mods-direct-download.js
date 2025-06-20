@@ -1,17 +1,16 @@
 // ==UserScript==
 // @name         GTA5-Mods Direct Download (Stay on Page)
 // @namespace    http://tampermonkey.net/
-// @version      1.4
-// @description  Download directly from detail pages without leaving the page
+// @version      1.5
+// @description  Download directly from detail pages without leaving the page (supports all language subdomains)
 // @author       xciphertv
-// @match        https://www.gta5-mods.com/*
+// @match        https://*.gta5-mods.com/*
 // @grant        none
 // ==/UserScript==
 
 (function () {
     'use strict';
 
-    // Inject Font Awesome if not already present
     if (!document.querySelector('link[href*="font-awesome"]')) {
         const fa = document.createElement('link');
         fa.rel = 'stylesheet';
@@ -19,7 +18,6 @@
         document.head.appendChild(fa);
     }
 
-    // Debounce helper
     function debounce(func, delay = 300) {
         let timeout;
         return (...args) => {
@@ -28,7 +26,6 @@
         };
     }
 
-    // Get direct download URL from iframe
     function getDirectDownloadUrl(intermediateUrl) {
         return new Promise((resolve, reject) => {
             const iframe = document.createElement('iframe');
@@ -48,12 +45,9 @@
                     try {
                         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                         if (!iframeDoc) throw new Error('Iframe content inaccessible');
-
                         const directLink = iframeDoc.querySelector('a[href*="files.gta5-mods.com"]');
-
                         clearTimeout(timeout);
                         document.body.removeChild(iframe);
-
                         if (directLink) {
                             resolve(directLink.href);
                         } else {
@@ -149,7 +143,6 @@
                     const filename = directUrl.split('/').pop();
 
                     triggerDownload(directUrl, filename);
-
                     button.innerHTML = '<i class="fa fa-check"></i> Downloaded';
                     showNotification(`<i class="fa fa-check-circle"></i> Download started: ${filename}`, 'success');
                 } catch (err) {
@@ -177,7 +170,6 @@
             subtree: true,
         });
 
-        // Optional cleanup on unload
         window.addEventListener('beforeunload', () => observer.disconnect());
     }
 
