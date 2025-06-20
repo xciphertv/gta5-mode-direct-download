@@ -4,13 +4,15 @@ A Tampermonkey userscript that enhances the GTA5-Mods.com download experience by
 
 ## 🚀 Features
 
-- **Stay on the detail page** - No more being redirected to download pages
-- **One-click downloads** - Downloads start immediately when you click the download button
-- **Background processing** - Uses hidden iframes to fetch download links without navigation
-- **Visual feedback** - Real-time notifications show download progress
-- **Cloudflare safe** - Designed to work with Cloudflare's bot protection
-- **Non-intrusive** - Download buttons look completely normal
-- **Fallback protection** - Gracefully handles errors by falling back to normal behavior
+- **Stay on the detail page** – No more being redirected to download pages
+- **One-click downloads** – Downloads start immediately when you click the download button
+- **Background processing** – Uses hidden iframes to fetch download links without navigation
+- **Visual feedback** – Real-time notifications show download progress
+- **Font Awesome auto-load** – Injects FA icons if missing
+- **Debounced DOM handling** – Handles dynamic elements without performance cost
+- **Cloudflare safe** – Designed to work with Cloudflare's bot protection
+- **Non-intrusive** – Download buttons look completely normal
+- **Fallback protection** – Gracefully handles errors by falling back to normal behavior
 
 ## 📦 Installation
 
@@ -29,41 +31,42 @@ A Tampermonkey userscript that enhances the GTA5-Mods.com download experience by
 ## 🎯 How It Works
 
 ### Before (Normal Behavior)
-1. Visit mod detail page
-2. Click "Download" button
-3. Get redirected to intermediate download page
-4. Click download button again on that page
+1. Visit mod detail page  
+2. Click "Download" button  
+3. Get redirected to intermediate download page  
+4. Click download button again on that page  
 5. File finally downloads
 
 ### After (With Script)
-1. Visit mod detail page
-2. Click "Download" button
+1. Visit mod detail page  
+2. Click "Download" button  
 3. File downloads immediately (you stay on the same page!)
 
 ## 🛠️ Technical Details
 
 The script works by:
 
-1. **Detecting download buttons** on GTA5-Mods detail pages
-2. **Intercepting clicks** and preventing normal navigation
-3. **Creating a hidden iframe** that loads the intermediate download page
-4. **Extracting the direct file URL** from the loaded page
-5. **Triggering the download** using the direct URL
+1. **Detecting download buttons** on GTA5-Mods detail pages  
+2. **Intercepting clicks** and preventing normal navigation  
+3. **Creating a hidden iframe** that loads the intermediate download page  
+4. **Extracting the direct file URL** from the loaded page  
+5. **Triggering the download** using the direct URL or fallback  
 6. **Cleaning up** the iframe and restoring the button
 
 ### Key Technologies
-- **Hidden iframes** - Load intermediate pages without navigation
-- **DOM manipulation** - Enhance buttons and show notifications
-- **Promise-based async/await** - Handle asynchronous iframe loading
-- **MutationObserver** - Detect dynamically loaded content
+- **Hidden iframes** – Load intermediate pages without navigating away
+- **Font Awesome auto-injection** – Ensures icons always display properly
+- **DOM manipulation** – Enhance buttons and show notifications
+- **Promise-based async/await** – Handle asynchronous iframe loading
+- **MutationObserver + debounce** – Detect dynamically loaded content efficiently
 
 ## 🔧 Configuration
 
 The script works out of the box with no configuration needed. However, you can customize:
 
-- **Notification duration** - Change the timeout in the `showNotification` function (default: 3 seconds)
-- **Loading timeout** - Modify the iframe timeout (default: 10 seconds)
-- **Button text** - Customize loading states in the click handler
+- **Notification duration** – Change the timeout in the `showNotification()` function (default: 3 seconds)
+- **Iframe load timeout** – Modify the iframe timeout (default: 10 seconds)
+- **Loading indicators** – Customize loading and error text/icon inside the click handler
 
 ## 🌐 Compatibility
 
@@ -71,10 +74,10 @@ The script works out of the box with no configuration needed. However, you can c
 - GTA5-Mods.com (all language variants)
 
 ### Supported Browsers
-- Chrome
+- Chrome  
 - Firefox  
-- Edge
-- Safari (with Tampermonkey)
+- Edge  
+- Safari (with Tampermonkey)  
 - Any browser that supports userscripts
 
 ## 🐛 Troubleshooting
@@ -92,10 +95,10 @@ The script works out of the box with no configuration needed. However, you can c
 - Try disabling other browser extensions temporarily
 
 **Cloudflare errors?**
-- The script is designed to avoid these, but if they occur, try:
-  - Clearing browser cache
-  - Waiting a few minutes before retrying
-  - Using the fallback mode (script will open intermediate page in new tab)
+- The script is designed to avoid these, but if they occur:
+  - Clear browser cache
+  - Wait a few minutes and retry
+  - Let the script fall back to opening the intermediate page in a new tab
 
 ## 📋 Changelog
 
@@ -130,47 +133,47 @@ The script works out of the box with no configuration needed. However, you can c
 
 Contributions are welcome! Here's how you can help:
 
-1. **Report bugs** - Open an issue with details about the problem
-2. **Suggest features** - Share ideas for improvements
-3. **Submit code** - Fork the repo and create a pull request
-4. **Test compatibility** - Try the script on different browsers/systems
+1. **Report bugs** – Open an issue with details
+2. **Suggest features** – Share ideas for improvements
+3. **Submit code** – Fork the repo and create a pull request
+4. **Test compatibility** – Try the script on different browsers/systems
 
 ### Development Setup
-1. Fork this repository
-2. Install Tampermonkey
-3. Load the script in development mode
-4. Make changes and test on GTA5-Mods.com
+1. Fork this repository  
+2. Install Tampermonkey  
+3. Load the script in development mode  
+4. Make changes and test on GTA5-Mods.com  
 5. Submit a pull request with your improvements
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ## ⚠️ Disclaimer
 
 This script is for educational and convenience purposes only. It:
-- Does not bypass any security measures
-- Does not violate GTA5-Mods.com's terms of service
-- Simply automates normal user interactions
+- Does not bypass any security measures  
+- Does not violate GTA5-Mods.com's terms of service  
+- Simply automates normal user interactions  
 - Respects all download restrictions and requirements
 
 Use responsibly and in accordance with GTA5-Mods.com's terms of service.
 
 ## 🙏 Acknowledgments
 
-- GTA5-Mods.com for providing an excellent modding platform
-- The Tampermonkey team for creating a powerful userscript manager
+- GTA5-Mods.com for providing an excellent modding platform  
+- The Tampermonkey team for creating a powerful userscript manager  
 - The modding community for inspiration and feedback
 
 ## 📞 Support
 
 If you encounter issues or have questions:
 
-1. Check the [Issues](../../issues) section for existing solutions
+1. Check the [Issues](../../issues) section for existing solutions  
 2. Create a new issue with:
-   - Browser and version
-   - Tampermonkey version
-   - Steps to reproduce the problem
+   - Browser and version  
+   - Tampermonkey version  
+   - Steps to reproduce the problem  
    - Error messages (if any)
 
 ---
