@@ -99,6 +99,15 @@ The script works out of the box with no configuration needed. However, you can c
 
 ## 📋 Changelog
 
+### v1.4 - Robust & Optimized Version
+- Injects Font Awesome icons if missing
+- Adds safer iframe handling with CORS check
+- Increases iframe load delay to 3s for reliability
+- Adds `window.open()` fallback for download blocking
+- Debounces MutationObserver to improve performance
+- Adds observer cleanup on unload
+- Improves button and notification UI feedback
+
 ### v1.3 - Stay-on-Page Version
 - Added hidden iframe method for background downloading
 - Implemented real-time notifications
